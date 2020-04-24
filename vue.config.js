@@ -37,4 +37,14 @@ module.exports = {
       return args
     })
   },
+
+  devServer: {
+    proxy: {
+      '^/api': {
+        target: process.env.API_SERVER,
+        ws: true,
+        changeOrigin: true,
+      },
+    },
+  },
 }
